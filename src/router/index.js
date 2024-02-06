@@ -2,10 +2,9 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 // 匯入組件
 import HomeView from '../views/Official/HomeView.vue'
 
-
 //定義路由
 //path 設定路由
-//component 對應組件
+//component 動態匯入對應組件
 const routes = [
   {
     path: '/',
@@ -19,15 +18,45 @@ const routes = [
   },
   {
     path: '/login',
+    name:'login',
+    component: () => import('../views/Login/LoginView.vue'),
+    
+  },
+  {
+    path: '/signup',
+    name: 'signup',
+    component: ()=> import('../views/Login/SignupView.vue')
+  },
+  {
+    path: '/browse',
+    name:'browse',
+    component: () => import('../views/ChatRoom/BrowseView.vue')
+  },
+  {
+    path: '/person/:id',
+    name: 'person',
+    component: ()=> import('../views/ChatRoom/PersonView.vue')
+  },
+  {
+    path: '/aboutme',
+    name: 'aboutme',
+    component: () => import('../views/ChatRoom/AboutMeView.vue'),
+  },
+  {
+    path: '/chatroom',
+    component: () => import('../views/ChatRoom/ChatRoomView.vue'),
     children:[
       {
+        // 迎接頁
         path: '',
-        component: () => import('../views/Login/LoginView.vue'),
+        name:'chatWelcome',
+        component: () => import('../views/ChatRoom/ChatWelcome.vue'),
       },
+      //不能紀錄上一頁作法？？？
       {
-        path: 'signup',
-        name: 'signup',
-        component: ()=> import('../views/Login/SignupView.vue')
+        path: ':targetId',
+        name:'target',
+        component: () => import('../views/ChatRoom/ChatRoomTarget.vue'),
       },
     ]
   },
@@ -39,6 +68,8 @@ const routes = [
   }
 
 ]
+
+
 
 const router = createRouter({
   history: createWebHashHistory(process.env.BASE_URL),
