@@ -30,7 +30,7 @@ export default {
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
-          <img class="loginImg" src="/images/img_login.png" alt="img_login">
+          <img class="loginImg" src="https://github.com/patrickpie83/HangOut/blob/master/public/images/img_login.png?raw=true" alt="img_login">
         </div>
         <div class="col-lg-6">
           <form class="mt-7">

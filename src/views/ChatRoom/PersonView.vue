@@ -165,7 +165,7 @@ export default {
                   </div>
                   <div class="headPicEffect ratio ratio-1x1">
                     <img v-if="personInfo.userInfo.pic" :src="personInfo.userInfo.pic" alt="userPic">
-                    <img v-else src="/images/img_memberPic.png" alt="defaulfUserPic">
+                    <img v-else src="https://github.com/patrickpie83/HangOut/blob/master/public/images/img_memberPic.png?raw=true" alt="defaulfUserPic">
                   </div>
                 </div>
                 <!-- 資料 -->
@@ -206,7 +206,7 @@ export default {
                   </div>
                   <div class="headPicEffect ratio ratio-1x1">
                     <img v-if="personInfo.petInfo.pic" :src="personInfo.petInfo.pic" alt="petPic">
-                    <img v-else src="/images/img_petPic.png" alt="defaultPetPic">
+                    <img v-else src="https://github.com/patrickpie83/HangOut/blob/master/public/images/img_petPic.png?raw=true" alt="defaultPetPic">
                   </div>
                 </div>
                 <!-- 資料 -->

@@ -27,7 +27,7 @@ export default {
         <div class="col-lg-6">
           <div class=" bg-hangout-second py-4 px-3 shadow" style="border-radius:60px">
             <div class="d-flex">
-              <img src="/images/img_indexFemale.png" alt="img_indexFemale">
+              <img src="https://github.com/patrickpie83/HangOut/blob/master/public/images/img_indexFemale.png?raw=true" alt="img_indexFemale">
               <div class="ms-4">
                 <p class="text-hangout-decorate mb-4">Emmy</p>
                 <p class="text-hangout-decorate">
@@ -41,7 +41,7 @@ export default {
         <div class="col-lg-6">
           <div class=" bg-hangout-second py-4 px-3 shadow" style="border-radius:60px">
             <div class="d-flex">
-              <img src="/images/img_indexMale.png" alt="img_indexMale">
+              <img src="https://github.com/patrickpie83/HangOut/blob/master/public/images/img_indexMale.png?raw=true" alt="img_indexMale">
               <div class="ms-4">
                 <p class="text-hangout-decorate mb-4">路易斯</p>
                 <p class="text-hangout-decorate">
