@@ -45,7 +45,7 @@
 
 
 <style lang="scss" scoped>
-
+@import "../assets/main";
   header{
     padding: 12px 0px 20px 0px;
     //！！！！！！！！待再改為mixin

@@ -35,7 +35,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
+@import "../assets/main";
     .ChatRoomNavBtn{
         font-size: 12px;
         padding: 10px 0px;

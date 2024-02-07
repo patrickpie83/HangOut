@@ -78,6 +78,7 @@ export default {
 
 
 <style lang="scss" scoped>
+@import "../../assets/main";
   .browseCard{
     padding: 36px 0px;
     display: flex;

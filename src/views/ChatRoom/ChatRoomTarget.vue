@@ -93,6 +93,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@import "../../assets/main";
   .chatRoomArea{
     //需扣除header跟footer的高度最外層才不會有捲軸，並且完整顯示內容不被擋住
     // 70px 56px

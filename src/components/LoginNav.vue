@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+@import "../assets/main";
     .LoginNavBtn{
         font-size: 12px;
         padding: 10px 0px;

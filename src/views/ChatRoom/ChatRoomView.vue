@@ -77,6 +77,7 @@ export default {
 
 
 <style lang="scss" scoped>
+@import "../../assets/main";
   .myContainer{
     margin: 0px 8px;
   }

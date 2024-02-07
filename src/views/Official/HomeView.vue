@@ -66,7 +66,7 @@ export default {
 
 
 <style lang="scss" scoped>
-
+@import "../../assets/main";
   .banner{
     background-image: url(../../../public/images/img_banner.png);
     background-position: center center;

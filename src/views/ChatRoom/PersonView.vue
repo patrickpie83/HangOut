@@ -341,7 +341,7 @@ export default {
 
 
 <style lang="scss" scoped>
-
+@import "../../assets/main";
   .chatBtn{
       position: fixed; /* Fixed/sticky position */
       bottom: 150px; /* Place the button at the bottom of the page */

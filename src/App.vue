@@ -4,7 +4,7 @@
 
 <style lang="scss">
   //全域引入 //改用vue.config.js引入元件才能使用變數
-  // @import "./assets/main";
+  @import "./assets/main";
   
   *{
     color: $hangout-text;

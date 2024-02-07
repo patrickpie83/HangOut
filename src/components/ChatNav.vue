@@ -80,6 +80,7 @@ export default {
 
 
 <style lang="scss" scoped>
+@import "../assets/main";
     .chatTarget{
         &:hover{
             cursor: pointer;
