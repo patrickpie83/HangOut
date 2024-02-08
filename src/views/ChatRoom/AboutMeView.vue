@@ -306,31 +306,43 @@ export default {
 
     // 查看誰按讚
     const users=ref([]);
-    const likerPic = (likerId)=>{
-      try{
-        let findResult = users.value.filter( obj=>{
-          return obj.id == likerId
-        })
-        return findResult[0].userInfo.pic
+    const likersInfo = ref([]);
 
-      } catch(err){
-        console.log(err)
-        return ""
-      }
+    // const likerPic = (likerId)=>{
+      // try{
+      //   let findResult = users.value.filter( obj=>{
+      //     return obj.id == likerId
+      //   })
+      //   return findResult[0].userInfo.pic
+
+      // } catch(err){
+      //   console.log(err)
+      //   return ""
+      // }
+    // }
+
+    const seeWhoLikes = (likerAry)=>{
+      likersInfo.value = [];
+      likerAry.forEach( element => {
+        let findResult = users.value.filter( obj=>{
+          return obj.id == element
+        })
+        likersInfo.value.push(findResult[0])
+      });
     }
 
-    const likerName = (likerId)=>{
-      try{
-        let findResult = users.value.filter( obj=>{
-          return obj.id == likerId
-        })
-        return findResult[0].userInfo.name
+    // const likerName = (likerId)=>{
+    //   try{
+    //     let findResult = users.value.filter( obj=>{
+    //       return obj.id == likerId
+    //     })
+    //     return findResult[0].userInfo.name
 
-      } catch(err){
-        console.log(err)
-        return "無法顯示"
-      }
-    }
+    //   } catch(err){
+    //     console.log(err)
+    //     return "無法顯示"
+    //   }
+    // }
 
     const userId = ref("");
     onMounted(()=>{
@@ -364,13 +376,15 @@ export default {
       newPost,
       userId,
       editPostTemp,
+      likersInfo,
 
       editInfo,
       createPost,
       clearPost,
 
-      likerPic,
-      likerName,
+      // likerPic,
+      seeWhoLikes,
+      // likerName,
       editPost,
       sendEditPost,
       
@@ -565,7 +579,7 @@ export default {
                     <span class="material-icons me-2">
                     favorite_border
                     </span>
-                    <a type="button" v-if="item.whoLikes.length>0" class="text-hangout-text" data-bs-toggle="modal" data-bs-target="#seeWhoLikes">{{item.whoLikes.length}}人</a>
+                    <a @click="seeWhoLikes(item.whoLikes)" type="button" v-if="item.whoLikes.length>0" class="text-hangout-text" data-bs-toggle="modal" data-bs-target="#seeWhoLikes">{{item.whoLikes.length}}人</a>
                     <span v-else>0人</span>
                   </div>
                   <!-- 彈窗內容 -->
@@ -578,12 +592,12 @@ export default {
                         <div class="modal-body">
                           <div class="container">
 
-                            <div v-for="(likerId,index) in item.whoLikes" :key="index" class="row border-bottom pb-3 mb-3">
+                            <div v-for="liker in likersInfo" :key="liker.id" class="row border-bottom pb-3 mb-3">
                               <div class="col-6 d-flex justify-content-center">
-                                <img :src="likerPic(likerId)" alt="" style="width:80px;height:80px;">
+                                <img :src="liker.userInfo.pic" alt="" style="width:80px;height:80px;">
                               </div>
                               <div class="col-6 d-flex align-items-center">
-                                <p >{{likerName(likerId)}}</p>
+                                <p >{{liker.userInfo.name}}</p>
                               </div>
                             </div>
 
