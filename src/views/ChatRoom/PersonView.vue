@@ -145,19 +145,21 @@ export default {
 
 <template>
   <HeaderComponent/>
-    <router-link :to="{ path: '/chatroom/'+personInfo.id, query: { targetId : personInfo.id } }" type="button" class="chatBtn d-flex align-items-center text-decoration-none">
-      <span class="material-icons me-3">chat</span>
-      <span>點我聊天</span>
+    <router-link :to="{ path: '/chatroom/'+personInfo.id, query: { targetId : personInfo.id } }" type="button" class="chatBtn d-flex flex-column flex-sm-row align-items-center text-decoration-none">
+      <span class="material-icons me-sm-3">chat</span>
+      <span class="d-none d-sm-block">點我聊天</span>
+      <span class="d-sm-none">點我</span>
+      <span class="d-sm-none">聊天</span>
     </router-link>
     <div class="bg-hangout-bg pt-4 pb-7" v-if="userId">
       
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-lg-8">
+          <div class="col-10 col-lg-8">
             <!-- 資料 -->
             <div class="row">
               <!-- 主人資料 -->
-              <div class="col-lg-6">
+              <div class="col-sm-6">
                 <!-- 頭像 -->
                 <div class="mb-5">
                   <div class="d-flex align-items-center mb-2">
@@ -198,7 +200,7 @@ export default {
                 </div>
               </div>
               <!-- 寵物資料 -->
-              <div class="col-lg-6">
+              <div class="col-sm-6">
                 <!-- 頭像 -->
                 <div class="mb-5">
                   <div class="d-flex align-items-center mb-2">
@@ -254,7 +256,7 @@ export default {
 
             <!-- 生活照 -->
             <div class="row mt-6 mb-4">
-              <div class="col-lg-10 d-flex align-items-center">
+              <div class="col-6 col-lg-9 d-flex align-items-center">
                 <span>生活照</span>
               </div>
             </div>
@@ -264,17 +266,20 @@ export default {
 
                 <div class="bg-white shadow-sm border border-hangout-second border-2" style="border-radius: 30px;">
                   <div @click="likePost(item)" class="likeBg p-5" style="border-radius: 28px;">
-                    <div class="d-flex">
-                      <div>
-                        <img :src="item.postImg" alt="" style="width:270px;height:270px">
+
+                    <div class="d-sm-flex justify-content-sm-between">
+                      <div class="ratio ratio-1x1 postPic">
+                        <img class="w-100" :src="item.postImg" alt="">
                       </div>
-                      <p class="ms-4">
+                      <p class="postText mt-4 mt-sm-0">
                         {{item.postText}}
                       </p>
                     </div>
-                    <span :class="{'text-hangout-second' : alreadyLike(item.whoLikes)}" class="likeIcon material-icons position-absolute" style="top:107%">
+
+                    <span :class="{'text-hangout-second' : alreadyLike(item.whoLikes)}" class="likeIcon material-icons position-absolute">
                       favorite
                     </span>
+                    
                   </div>
                   <div class="py-4 px-5">
                     <div class="d-flex align-items-center">
@@ -352,9 +357,16 @@ export default {
       background-color:$hangout-decorate; /* Set a background color */
       color: $hangout-text; /* Text color */
       cursor: pointer; /* Add a mouse pointer on hover */
-      padding: 16px 70px; /* Some padding */
+      padding: 16px ; /* Some padding */
       border-radius: 20px 0px 0px 20px; /* Rounded corners */
       font-size: 16px; /* Increase font size */
+
+      @include pad{
+        padding: 16px 24px; /* Some padding */
+      }
+      @include pc{
+        padding: 16px 70px; /* Some padding */
+      }
 
     &:hover{
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -372,6 +384,23 @@ export default {
   .memberEffect{
     background-color: $hangout-block;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+
+  .postPic{
+    width: 100%;
+    @include sm{
+        width: 48%;
+    }
+  }
+  .postText{
+    width: 100%;
+    @include sm{
+        width: 48%;
+    }
+  }
+
+  .likeIcon{
+    bottom: -48px;
   }
 
   .likeBg{

@@ -47,29 +47,25 @@ export default {
   <div class="bg-hangout-bg pt-4 pb-7">
     <div class="container">
       <div class="row">
-        <div v-for="item in usersData" :key="item.id" class="col-lg-6 mb-4">
+        <div v-for="item in usersData" :key="item.id" class="col-sm-6 mb-4">
           <router-link :to="{ path: '/person/'+item.id, query: { id : item.id } }" class="browseCard">
             <div class="position-relative">
               <div class="d-block">
-                <img v-if="item.userInfo.pic" :src="item.userInfo.pic" :alt="item.userInfo.name" style="width:234px;height:234px">
-                <img v-else src="/images/img_memberPic.png" alt="defaulfUserPic" style="width:234px;height:234px">
+                <img class="picSize" v-if="item.userInfo.pic" :src="item.userInfo.pic" :alt="item.userInfo.name">
+                <img class="picSize" v-else src="https://github.com/patrickpie83/HangOut/blob/master/public/images/img_memberPic.png?raw=true" alt="defaulfUserPic">
               </div>
               <span class="namePosition">{{item.userInfo.name}}</span>
             </div>
             <div class="position-relative">
               <div class="d-block">
-                <img v-if="item.petInfo.pic" :src="item.petInfo.pic" :alt="item.petInfo.name" style="width:234px;height:234px">
-                <img v-else src="/images/img_petPic.png" alt="defaultPetPic" style="width:234px;height:234px">
+                <img class="picSize" v-if="item.petInfo.pic" :src="item.petInfo.pic" :alt="item.petInfo.name">
+                <img class="picSize" v-else src="https://github.com/patrickpie83/HangOut/blob/master/public/images/img_petPic.png?raw=true" alt="defaultPetPic">
               </div>
               <span v-if="item.petInfo.name" class="namePosition">{{item.petInfo.name}}</span>
               <span v-else class="namePosition">未設定</span>
             </div>
-            
           </router-link>
         </div>
-
-
-
       </div>
     </div>
   </div>
@@ -80,7 +76,7 @@ export default {
 <style lang="scss" scoped>
 @import "../../assets/main";
   .browseCard{
-    padding: 36px 0px;
+    padding: 24px 0px;
     display: flex;
     justify-content: space-evenly;
     background-color: $hangout-primary;
@@ -91,14 +87,43 @@ export default {
       background-color: $hangout-second;
       box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     }
+    @include pc{
+        padding: 36px 0px;
+    }
+  }
+
+  .picSize{
+    width: 117px;
+    height: 117px;
+    @include xs{
+        width: 140px;
+        height: 140px;
+    }
+    @include ss{
+        width: 176px;
+        height: 176px;
+    }
+    @include sm{
+        width: 94px;
+        height: 94px;
+    }
+    @include pad{
+        width: 140px;
+        height: 140px;
+    }
+    @include pc{
+        width: 176px;
+        height: 176px;
+    }
+     @include pc-xl{
+        width: 234px;
+        height: 234px;
+    }
   }
 
   .namePosition{
     position: absolute;
     color: #fff;
-    // top: -28px;
-    // left: 50%;
-    // transform:translate(-50%,0%);
     bottom: 0%;
     left: 8px;
   }

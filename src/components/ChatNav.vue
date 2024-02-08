@@ -37,12 +37,12 @@ export default {
 <template>
     <nav class="bg-hangout-block overflow-auto">
         
-        <div class="py-6 px-3 border-bottom border-hangout-second bg-hangout-decorate">
-            <div v-if="targetId" class="fw-bold  d-flex align-items-center ">
-                <p class="text-hangout-second">目前所選聊天對象為</p>
-                <div class="div mx-auto d-flex align-items-center">
+        <div class="hintArea py-sm-4 px-3 border-bottom border-hangout-second bg-hangout-decorate">
+            <div v-if="targetId" class="fw-bold  d-flex flex-column align-items-center ">
+                <p class="text-hangout-second mb-sm-3">目前所選聊天對象為</p>
+                <div class="div mx-auto d-sm-flex align-items-center">
                     <img class="targetHint" :src="targetPic" :alt="targetName">
-                    <p class="ms-2 text-hangout-second">{{targetName}}</p>
+                    <p class="ms-sm-2 text-hangout-second">{{targetName}}</p>
                 </div>
                 
             </div>
@@ -65,11 +65,11 @@ export default {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 d-flex justify-content-start align-items-center">
+                        <div class="col-lg-6 nameText d-flex justify-content-start align-items-center">
                             <p>{{item.otherName}}</p>
                         </div>
                         <div class="col-lg-12">
-                            <p class="mt-1 text-end fs-7 text-hangout-text">最近交談時間 {{item.lastestTime}}</p>
+                            <p class="mt-1 text-end timeText text-hangout-text">最近交談時間 {{item.lastestTime}}</p>
                         </div>
                     </router-link>
                 </li>
@@ -87,10 +87,34 @@ export default {
             background-color: $hangout-second;
         }
     }
+    .hintArea{
+        font-size: 12px;
+        @include pc-xl{
+            font-size: 16px;
+        }
+    }
 
     .targetHint{
-        height: 60px;
+        height: 30px;
+        width: 30px;
+        border-radius: 15px;
+        @include pc-xl{
+            height: 60px;
         width: 60px;
         border-radius: 30px;
+        }
+    }
+    .nameText{
+        font-size: 12px;
+        @include pc{
+            font-size: 16px;
+        }
+    }
+
+    .timeText{
+        font-size: 8px;
+        @include pc-xl{
+            font-size: 8px;
+        }
     }
 </style>

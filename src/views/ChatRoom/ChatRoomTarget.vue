@@ -69,7 +69,7 @@ export default {
             <p>{{item.time}}</p>
           </div>
 
-          <div class="msgArea">
+          <div class="msgArea bg-hangout-block">
             <p>{{item.msg}}</p>
           </div>
 
@@ -78,7 +78,7 @@ export default {
       
       <div v-else class="col-lg-8">
         <div class="d-flex mb-5">
-          <div class="msgArea me-2">
+          <div class="msgArea bg-white me-2">
             <p>{{item.msg}}</p>
           </div>
           <div class="timeArea d-flex align-items-end ">
@@ -111,7 +111,7 @@ export default {
   }
 
   .msgArea{
-    background-color: #fff;
+    border: 1px solid $hangout-text;
     padding: 24px;
     border-radius: 24px;
   }

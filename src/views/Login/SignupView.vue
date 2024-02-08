@@ -29,14 +29,14 @@ export default {
 
 <template>
   <HeaderComponent/>
-  <div class="bg-hangout-bg pt-4 pb-7">
+  <div class="bg-hangout-bg pt-2 pt-lg-4 pb-7">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-6 text-center mb-2 mb-lg-0">
           <img class="loginImg" src="https://github.com/patrickpie83/HangOut/blob/master/public/images/img_signup.png?raw=true" alt="img_signup">
         </div>
         <div class="col-lg-6">
-          <form class="mt-7">
+          <form class="mt-lg-7">
             <label for="signupName" class="form-label mb-2">用戶名稱</label>
             <input v-model="signupInfo.name" type="text" class="form-control rounded-0 border-0 shadow-sm mb-4" id="signupName" placeholder="請輸入用戶大名">
             <label for="signupEmail" class="form-label mb-2">電子信箱</label>

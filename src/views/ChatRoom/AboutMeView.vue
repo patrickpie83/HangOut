@@ -384,12 +384,12 @@ export default {
   <div class="bg-hangout-bg pt-4 pb-7" v-if="userId">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-8">
+        <div class="col-10 col-lg-8">
           
           <!-- 資料 -->
           <div class="row">
             <!-- 主人資料 -->
-            <div class="col-lg-6">
+            <div class="col-sm-6">
               <!-- 頭像 -->
               <div class="mb-5">
                 <div class="d-flex align-items-center mb-2">
@@ -397,7 +397,7 @@ export default {
                 </div>
                 <div @click="editInfo('我的頭像')" class="headPicEffect ratio ratio-1x1">
                   <img v-if="memberInfo.userInfo.pic" :src="memberInfo.userInfo.pic" alt="userPic">
-                  <img v-else src="/images/img_memberPic.png" alt="defaulfUserPic">
+                  <img v-else src="https://github.com/patrickpie83/HangOut/blob/master/public/images/img_memberPic.png?raw=true" alt="defaulfUserPic">
                 </div>
               </div>
               <!-- 資料 -->
@@ -430,7 +430,7 @@ export default {
               </div>
             </div>
             <!-- 寵物資料 -->
-            <div class="col-lg-6">
+            <div class="col-sm-6">
               <!-- 頭像 -->
               <div class="mb-5">
                 <div class="d-flex align-items-center mb-2">
@@ -438,7 +438,7 @@ export default {
                 </div>
                 <div @click="editInfo('寵物頭像')" class="headPicEffect ratio ratio-1x1">
                   <img v-if="memberInfo.petInfo.pic" :src="memberInfo.petInfo.pic" alt="petPic">
-                  <img v-else src="/images/img_petPic.png" alt="defaultPetPic">
+                  <img v-else src="https://github.com/patrickpie83/HangOut/blob/master/public/images/img_petPic.png?raw=true" alt="defaultPetPic">
                 </div>
               </div>
               <!-- 資料 -->
@@ -485,10 +485,10 @@ export default {
           </div>
           <!-- 生活照 -->
           <div class="row mt-6 mb-4">
-            <div class="col-lg-10 d-flex align-items-center">
+            <div class="col-6 col-lg-9 d-flex align-items-center">
               <span>生活照</span>
             </div>
-            <div class="col-lg-2">
+            <div class="col-6 col-lg-3">
               <button type="button" class="newPostBtn w-100 btn bg-hangout-decorate border-hangout-decorate" data-bs-toggle="modal" data-bs-target="#newPost">新增貼文</button>
             </div>
           </div>
@@ -550,15 +550,16 @@ export default {
 
               <div class="bg-white shadow-sm border border-hangout-second border-2" style="border-radius: 30px;">
                 <div class="bg-hangout-block p-5" style="border-radius: 28px;">
-                  <div class="d-flex">
-                    <div>
-                      <img :src="item.postImg" alt="" style="width:270px;height:270px">
+                  <div class="d-sm-flex justify-content-sm-between">
+                    <div class="ratio ratio-1x1 postPic">
+                      <img class="w-100" :src="item.postImg" alt="">
                     </div>
-                    <p class="ms-4">
+                    <p class="postText mt-4 mt-sm-0">
                       {{item.postText}}
                     </p>
                   </div>
                 </div>
+
                 <div class="py-3 px-5 d-flex justify-content-between">
                   <div class="d-flex align-items-center">
                     <span class="material-icons me-2">
@@ -578,10 +579,10 @@ export default {
                           <div class="container">
 
                             <div v-for="(likerId,index) in item.whoLikes" :key="index" class="row border-bottom pb-3 mb-3">
-                              <div class="col-lg-6 d-flex justify-content-center">
+                              <div class="col-6 d-flex justify-content-center">
                                 <img :src="likerPic(likerId)" alt="" style="width:80px;height:80px;">
                               </div>
-                              <div class="col-lg-6 d-flex align-items-center">
+                              <div class="col-6 d-flex align-items-center">
                                 <p >{{likerName(likerId)}}</p>
                               </div>
                             </div>
@@ -711,6 +712,19 @@ export default {
     
     &:active {
       transform: scale(0.95);
+    }
+  }
+
+  .postPic{
+    width: 100%;
+    @include sm{
+        width: 48%;
+    }
+  }
+  .postText{
+    width: 100%;
+    @include sm{
+        width: 48%;
     }
   }
 

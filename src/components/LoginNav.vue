@@ -2,12 +2,12 @@
     <nav class="fixed-bottom bg-white">
         <div class="container">
             <div class="row py-2">
-                <div class="col-lg-6">
+                <div class="col-6">
                     <router-link :class="{'bg-hangout-decorate' : navState=='login'}" to="/login" type="button" class="LoginNavBtn">
                         登入會員
                     </router-link>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-6">
                     <router-link :class="{'bg-hangout-decorate' : navState=='signup'}" to="/signup" type="button" class="LoginNavBtn">
                         註冊會員
                     </router-link>
@@ -52,9 +52,10 @@ export default {
         }
 
         //！！！！！！！！待再改為mixin
-        @media (min-width: 992px) {
+        @include pc{
             font-size: 16px;
             padding: 20px 0px;
         }
+        
     }
 </style>

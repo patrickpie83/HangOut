@@ -24,14 +24,14 @@ export default defineStore ('loginStore',{
                 "password":signupInfo.password,
                 "userInfo":{
                     "name":signupInfo.name,
-                    "pic":"",
+                    "pic":"https://github.com/patrickpie83/HangOut/blob/master/public/images/img_memberPic.png?raw=true",
                     "gender":"",
                     "sexualOrientation":"",
                     "intro":""
                 },
                 "petInfo":{
                     "name":"",
-                    "pic":"",
+                    "pic":"https://github.com/patrickpie83/HangOut/blob/master/public/images/img_petPic.png?raw=true",
                     "breed":"",
                     "gender":"",
                 },
