@@ -48,6 +48,7 @@ export default {
             </div>
             <p v-else class="fw-bold">目前未選擇聊天對象</p>
         </div>
+        
         <div class="container">
             <p v-if="loadingRoom"> 正在loading中...</p>
             <ul v-else class="list-unstyled">

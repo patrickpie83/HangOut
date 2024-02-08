@@ -63,7 +63,7 @@ export default {
           <router-view/>
 
           <div class="inputArea bg-hangout-primary position-absolute d-flex justify-content-center align-items-center">
-            <input v-model="newMsg" @keyup.enter="callSendMsg" type="text" class="inputText w-75 h-50 px-4" placeholder="輸入訊息">
+            <input v-model="newMsg" @keyup.enter="callSendMsg" type="text" class="inputText w-75 px-4" placeholder="輸入訊息">
           </div>
         </content>
 
@@ -83,22 +83,29 @@ export default {
   }
 
   .chatRoomTargets{
-    height:calc(100vh - 114px);
-    @media (min-width: 992px) {
-       height:calc(100vh - 164px);
+    height:calc(100vh - 120px);
+    @include pc{
+      height:calc(100vh - 170px);
     }
   }
   
 
   .inputArea{
     width: 75%;
-    height: 100px;
-    bottom:13px;
+    height: 70px;
+    bottom:0px;
+    @include pc{
+      height: 100px;
+    }
   }
 
   .inputText{
     background-color: $hangout-bg;
     border: none;
     border-radius: 30px;
+    height: 65%;
+    @include pc{
+      height: 50%;
+    }
   }
 </style>

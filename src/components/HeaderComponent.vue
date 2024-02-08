@@ -26,14 +26,14 @@
     <div class="container">
       <div class="row justify-content-end">
         <!-- 左邊也加一個，讓logo可以置中 -->
-        <div class="col-4 col-lg-3 col-xl-1"></div>
-        <div class="col-4 col-lg-6 col-xl-10 d-flex justify-content-center">
+        <div class="col-3 col-lg-2"></div>
+        <div class="col-6 col-lg-8 d-flex justify-content-center">
           <router-link to="/about" type="button" class="text-decoration-none">
             <p class="fs-6 logoBtn">Hang Out</p>
           </router-link>
         </div>
-        <div class="col-4 col-lg-3 col-xl-1">
-          <button v-if="showLogoutBtn" @click="logout" type="button" class="logoutBtn w-100 btn bg-hangout-decorate border-hangout-decorate">登出</button>
+        <div class="col-3 col-lg-2">
+          <button v-if="showLogoutBtn" @click="logout" type="button" class="logoutBtn p-1 w-100 btn bg-hangout-decorate border-hangout-decorate">登出</button>
         </div>
 
       </div>
@@ -47,10 +47,9 @@
 <style lang="scss" scoped>
 @import "../assets/main";
   header{
-    padding: 12px 0px 20px 0px;
-    //！！！！！！！！待再改為mixin
-    @media (min-width: 992px) {
-       padding: 24px 0px 32px 0px;
+    padding: 16px 0px 16px 0px;
+    @include pc{
+        padding: 24px 0px 32px 0px;
     }
    
   }
