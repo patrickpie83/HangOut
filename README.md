@@ -13,15 +13,15 @@
 ## 開發環境
   - 應用 [json-server-auth](https://www.npmjs.com/package/json-server-auth) 套件使用會員登入API、建立模擬的API，存取使用者資料。
   - 應用 [Render](https://render.com/)。將模擬的API部署至雲端伺服器。
-  - 應用 [Firebase](https://console.firebase.google.com/)製作聊天室。對於聊天室監聽能即時渲染至畫面上。
+  - 應用 [Firebase](https://firebase.google.com/)製作聊天室。對於聊天室監聽能即時渲染至畫面上。
 
 ## 開發框架
   - 切版框架 - [Bootstrap](https://bootstrap5.hexschool.com/docs/5.1/getting-started/introduction/)使用元件、建立自訂樣式變數
   - 樣式語言 - SCSS
-  - JS框架 - [Vue]vue@3.4.15(https://vuejs.org/)
+  - JS框架 - [Vue](https://vuejs.org/)vue@3.4.15
 
 ## 使用工具
-  - 開發工具 - [Vue-CLI]@vue/cli 5.0.8(https://cli.vuejs.org/zh/guide/)
+  - 開發工具 - [Vue-CLI](https://cli.vuejs.org/zh/guide/)@vue/cli 5.0.8
   - 狀態管理套件 - [pinia](https://pinia.vuejs.org/zh/)
   - 彈窗套件 - [Sweetalert2](https://sweetalert2.github.io/)
   - 網路請求套件 - [axios](https://github.com/axios/axios)
