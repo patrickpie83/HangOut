@@ -1,5 +1,5 @@
 <template>
-    <nav class="fixed-bottom bg-white">
+    <nav class="navShadow fixed-bottom bg-white">
         <div class="container">
             <div class="row py-2">
                 <div class="col-6">
@@ -33,6 +33,11 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/main";
+
+    .navShadow{
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+
     .LoginNavBtn{
         font-size: 12px;
         padding: 10px 0px;
@@ -51,7 +56,6 @@ export default {
             background-color: $hangout-decorate;
         }
 
-        //！！！！！！！！待再改為mixin
         @include pc{
             font-size: 16px;
             padding: 20px 0px;

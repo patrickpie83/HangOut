@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-    <nav class="fixed-bottom bg-white">
+    <nav class="fixed-bottom bg-white navShadow">
         <div class="container">
             <div class="row py-2">
                 <div class="col-4">
@@ -36,6 +36,10 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/main";
+    .navShadow{
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+
     .ChatRoomNavBtn{
         font-size: 12px;
         padding: 10px 0px;

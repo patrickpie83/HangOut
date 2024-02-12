@@ -50,9 +50,8 @@ export default {
 
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../../assets/main";
-  // 共用勿設scoped
   .loginImg{
     width: 35%;
     border: 12px solid $hangout-block;

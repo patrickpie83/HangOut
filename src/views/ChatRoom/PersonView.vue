@@ -298,10 +298,10 @@ export default {
                           <div class="container">
 
                             <div v-for="(likerId,index) in item.whoLikes" :key="index" class="row border-bottom pb-3 mb-3">
-                              <div class="col-lg-6 d-flex justify-content-center">
+                              <div class="col-6 d-flex justify-content-center">
                                 <img :src="likerPic(likerId)" alt="" style="width:80px;height:80px;">
                               </div>
-                              <div class="col-lg-6 d-flex align-items-center">
+                              <div class="col-6 d-flex align-items-center">
                                 <p >{{likerName(likerId)}}</p>
                               </div>
                             </div>

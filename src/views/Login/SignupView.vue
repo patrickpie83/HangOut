@@ -54,8 +54,36 @@ export default {
 
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../../assets/main";
+  .loginImg{
+    width: 35%;
+    border: 12px solid $hangout-block;
+    border-radius: 50%;
+    @include pad{
+      border: 8px solid $hangout-block;
+      width: 20%;
+    }
+    @include pc{
+      border: 32px solid $hangout-block;
+      width: 100%;
+    }
+  }
+  ::placeholder{
+    color:$hangout-primary!important;
+  }
+
+  .loginBtn{
+    &:hover{
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+    
+    &:active {
+      transform: scale(0.98);
+      box-shadow:none
+    }
+  }
+
   .signupBtn{
     &:hover{
       box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;

@@ -16,7 +16,7 @@ export default {
     <div class="container loginArea">
       <div class="row justify-content-center mb-5">
         <div class="col-10 col-lg-4">
-          <router-link to="/login" type="button" class="w-100 py-4 py-lg-5 border-0 loginBtn text-decoration-none">
+          <router-link to="/login" type="button" class="btn w-100 py-4 py-lg-5 border-0 loginBtn text-decoration-none">
             <div class="d-flex justify-content-center">
               <p class="loginText me-2 me-lg-4">立即登入</p>
               <p class="fs-6 loginLogo">Hang Out</p>
@@ -121,7 +121,7 @@ export default {
   .loginBtn{
     background-color: #fff;
     border-radius:60px;
-    transition-duration:0.2s; 
+    // transition-duration:0.2s; 
 
     .loginText{
         color:$hangout-primary;
@@ -161,6 +161,7 @@ export default {
     }
 
     &:active {
+      background-color:$hangout-primary!important;
       transform: scale(0.95);
       box-shadow:none
     }
