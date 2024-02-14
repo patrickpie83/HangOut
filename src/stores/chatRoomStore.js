@@ -116,6 +116,7 @@ export default defineStore ('chatRoomStore',{
             }
         },
         updateData(){
+            console.log(`執行了一次updateData`)
             this.renderNavData = [];
             
             let promises = [];
@@ -141,8 +142,16 @@ export default defineStore ('chatRoomStore',{
                     obj.otherName = res.data.userInfo.name
                     obj.otherPic = res.data.userInfo.pic
                     obj.petPic = res.data.petInfo.pic
-                    this.renderNavData.push(obj)
-                    this.loadingRoom = false;
+
+
+                    // 因數據產生變化時，會同時多次執行updateData函式，故若已有對象資料則不再push
+                    let alreadyResult = this.renderNavData.filter( data =>{
+                        return data.otherId == otherIdFilter[0]
+                    })
+                    if(alreadyResult[0] == undefined){
+                        this.renderNavData.push(obj)
+                    }
+                    
                 })
                 .catch((err)=>{
                     console.log(err)
@@ -167,6 +176,7 @@ export default defineStore ('chatRoomStore',{
             this.renderNavData = this.renderNavData.sort(function (a, b) {
                 return a.lastestTime < b.lastestTime ? 1 : -1;
             });
+            this.loadingRoom = false;
         },
         switchTargetIdAndRoomKey(id,key){
             this.targetRoomKey = key;
