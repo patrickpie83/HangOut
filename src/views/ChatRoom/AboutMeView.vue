@@ -4,6 +4,7 @@ import Swal from 'sweetalert2'
 
 import HeaderComponent from '@/components/HeaderComponent.vue';
 import ChatRoomNav from '../../components/ChatRoomNav.vue';
+import NotLogin from '../../components/NotLogin.vue';
 import statusStore from '../../stores/statusStore';
 import toastMessageStore from '../../stores/toastMessageStore';
 import timeStore from '../../stores/timeStore';
@@ -20,7 +21,8 @@ const time = timeStore();
 export default {
   components:{
     HeaderComponent,
-    ChatRoomNav
+    ChatRoomNav,
+    NotLogin
   },
   setup(){
     const memberInfo = ref({
@@ -256,6 +258,7 @@ export default {
       newPost.value.postId = myuuid ;
       newPost.value.createDate = time.getCurrentTime();
       memberInfo.value.lifePic.push(newPost.value)
+      
       axios.patch(`${apiUrl}/users/${userId.value}`,memberInfo.value)
       .then(()=>{
         toastMessage.pushMessage("success","新增成功");
@@ -308,19 +311,6 @@ export default {
     const users=ref([]);
     const likersInfo = ref([]);
 
-    // const likerPic = (likerId)=>{
-      // try{
-      //   let findResult = users.value.filter( obj=>{
-      //     return obj.id == likerId
-      //   })
-      //   return findResult[0].userInfo.pic
-
-      // } catch(err){
-      //   console.log(err)
-      //   return ""
-      // }
-    // }
-
     const seeWhoLikes = (likerAry)=>{
       likersInfo.value = [];
       likerAry.forEach( element => {
@@ -330,19 +320,6 @@ export default {
         likersInfo.value.push(findResult[0])
       });
     }
-
-    // const likerName = (likerId)=>{
-    //   try{
-    //     let findResult = users.value.filter( obj=>{
-    //       return obj.id == likerId
-    //     })
-    //     return findResult[0].userInfo.name
-
-    //   } catch(err){
-    //     console.log(err)
-    //     return "無法顯示"
-    //   }
-    // }
 
     const userId = ref("");
     onMounted(()=>{
@@ -503,7 +480,7 @@ export default {
               <span>生活照</span>
             </div>
             <div class="col-6 col-lg-3">
-              <button type="button" class="newPostBtn w-100 btn bg-hangout-decorate border-hangout-decorate" data-bs-toggle="modal" data-bs-target="#newPost">新增貼文</button>
+              <button @click="clearPost" type="button" class="newPostBtn w-100 btn bg-hangout-decorate border-hangout-decorate" data-bs-toggle="modal" data-bs-target="#newPost">新增貼文</button>
             </div>
           </div>
 
@@ -685,13 +662,8 @@ export default {
       
     </div>
   </div>
-  <div class="bg-hangout-bg pt-4 pb-7" v-else>
-    <div class="container">
-      <p>尚未登入</p>
-      <router-link to="/login">登入會員去</router-link>
-    </div>
-  </div>
 
+  <NotLogin v-else />
 
   <ChatRoomNav/>
 </template>

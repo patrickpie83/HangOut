@@ -50,7 +50,7 @@ export default {
         </div>
         
         <div class="container">
-            <p v-if="loadingRoom"> 正在loading中...</p>
+            <p v-if="loadingRoom" class="text-center"> loading ...</p>
             <ul v-else class="list-unstyled">
                 <li v-for="item in renderNavData" :key="item.roomKey">
                     <router-link @click="switchTargetIdAndRoomKey(item.otherId,item.roomKey)" :to="{ path: '/chatroom/'+item.otherId, query: { targetId : item.otherId } }" :class="{ 'bg-hangout-second' : item.otherId==targetId}" class="chatTarget row py-2 border-bottom border-hangout-second text-decoration-none">

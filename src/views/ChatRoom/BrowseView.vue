@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import HeaderComponent from '@/components/HeaderComponent.vue';
 import ChatRoomNav from '../../components/ChatRoomNav.vue';
+import NotLogin from '../../components/NotLogin.vue';
 import statusStore from '../../stores/statusStore';
 
 import { onMounted, ref } from 'vue';
@@ -12,11 +13,13 @@ const status = statusStore();
 export default {
   components:{
     HeaderComponent,
-    ChatRoomNav
+    ChatRoomNav,
+    NotLogin
   },
   setup(){
     // 瀏覽頁各使用者資料
     const usersData = ref([]);
+    const isLoading = ref(false);
 
     const userId = ref("");
     onMounted(()=>{
@@ -24,10 +27,12 @@ export default {
       userId.value = localStorage.getItem("userId");
 
       if(userId.value){
+        isLoading.value =true;
         axios.get(`${apiUrl}/users`)
         .then((res)=>{
           //陣列filter - 將自己以外的使用者過濾出來
-          usersData.value = res.data.filter(value => value.id != userId.value )
+          usersData.value = res.data.filter(value => value.id != userId.value );
+          isLoading.value = false;
         })
         .catch((err)=>{
           console.log(err)
@@ -36,7 +41,9 @@ export default {
     })
     
     return{
-      usersData
+      usersData,
+      userId,
+      isLoading
     }
   }
 }
@@ -44,8 +51,13 @@ export default {
 
 <template>
   <HeaderComponent/>
-  <div class="bg-hangout-bg pt-4 pb-7">
+  <div class="bg-hangout-bg pt-4 pb-7" v-if="userId">
+    <VueLoading 
+      v-model:active = "isLoading" 
+      />
+
     <div class="container">
+
       <div class="row">
         <div v-for="item in usersData" :key="item.id" class="col-sm-6 mb-4">
           <router-link :to="{ path: '/person/'+item.id, query: { id : item.id } }" class="browseCard">
@@ -69,6 +81,9 @@ export default {
       </div>
     </div>
   </div>
+
+  <NotLogin v-else />
+
   <ChatRoomNav/>
 </template>
 

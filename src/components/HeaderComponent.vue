@@ -33,7 +33,7 @@
           </router-link>
         </div>
         <div class="col-3 col-lg-2">
-          <button v-if="showLogoutBtn" @click="logout" type="button" class="logoutBtn p-1 w-100 btn bg-hangout-decorate border-hangout-decorate">登出</button>
+          <button v-if="showLogoutBtn " @click="logout" type="button" class="logoutBtn p-1 w-100 btn bg-hangout-decorate border-hangout-decorate">登出</button>
         </div>
 
       </div>

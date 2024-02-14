@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import HeaderComponent from '@/components/HeaderComponent.vue';
 import ChatRoomNav from '../../components/ChatRoomNav.vue';
+import NotLogin from '../../components/NotLogin.vue';
 import statusStore from '../../stores/statusStore';
 import toastMessageStore from '../../stores/toastMessageStore';
 
@@ -15,7 +16,8 @@ const toastMessage = toastMessageStore();
 export default {
   components:{
     HeaderComponent,
-    ChatRoomNav
+    ChatRoomNav,
+    NotLogin
   },
   
   setup(){
@@ -335,12 +337,9 @@ export default {
         
       </div>
     </div>
-    <div class="bg-hangout-bg pt-4 pb-7" v-else>
-      <div class="container">
-        <p>未登入會員無法查看</p>
-        <router-link to="/login">登入會員去</router-link>
-      </div>
-    </div>
+
+    <NotLogin v-else />
+    
   <ChatRoomNav/>
 </template>
 

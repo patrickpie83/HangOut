@@ -1,8 +1,9 @@
 <script>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import LoginNav from '@/components/LoginNav.vue';
 import HeaderComponent from '@/components/HeaderComponent.vue';
 import loginStore from '../../stores/loginStore.js';
+import router from '@/router';
 export default {
   components:{
     LoginNav,
@@ -15,6 +16,14 @@ export default {
     })
 
     const { login } = loginStore();
+    const userId = ref("");
+
+    onMounted(()=>{
+      userId.value = localStorage.getItem("userId");
+      if(userId.value){
+        router.push('/browse');
+      }
+    })
 
     return{
       loginInfo,

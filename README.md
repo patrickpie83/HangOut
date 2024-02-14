@@ -24,6 +24,7 @@
   - 開發工具 - [Vue-CLI](https://cli.vuejs.org/zh/guide/)@vue/cli 5.0.8
   - 狀態管理套件 - [pinia](https://pinia.vuejs.org/zh/)
   - 彈窗套件 - [Sweetalert2](https://sweetalert2.github.io/)
+  - 讀取效果套件 - [vue-loading-overlay](https://www.npmjs.com/package/vue-loading-overlay)
   - 網路請求套件 - [axios](https://github.com/axios/axios)
 
 ## 共享資源

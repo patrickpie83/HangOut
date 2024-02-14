@@ -17,11 +17,11 @@ export default {
 
     const scrollToBottom = () => {
       if (scrollBtmContainer.value) {
-        console.log(`scrollTop為${scrollBtmContainer.value.scrollTop}`)
-        console.log(`scrollHeight為${scrollBtmContainer.value.scrollHeight}`)
+        // console.log(`scrollTop為${scrollBtmContainer.value.scrollTop}`)
+        // console.log(`scrollHeight為${scrollBtmContainer.value.scrollHeight}`)
         scrollBtmContainer.value.scrollTop = scrollBtmContainer.value.scrollHeight;
-        console.log(`賦予後scrollTop為${scrollBtmContainer.value.scrollTop}`)
-        console.log(`賦予後scrollHeight為${scrollBtmContainer.value.scrollHeight}`)
+        // console.log(`賦予後scrollTop為${scrollBtmContainer.value.scrollTop}`)
+        // console.log(`賦予後scrollHeight為${scrollBtmContainer.value.scrollHeight}`)
         scrollToBottomAgain();
       }
     };
@@ -33,7 +33,7 @@ export default {
     };
     
     watch( renderMsgData , ()=>{
-      console.log(`觸發監聽`)
+      // console.log(`觸發監聽`)
       scrollToBottom();
     })
 

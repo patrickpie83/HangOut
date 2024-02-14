@@ -13,6 +13,7 @@ const toastMessage = toastMessageStore();
 
 export default defineStore ('loginStore',{
     state:()=>({
+        isLogin:false,
     }),
     actions:{
         //註冊
@@ -52,6 +53,7 @@ export default defineStore ('loginStore',{
             axios.post(`${apiUrl}/login`,loginInfo)
             .then((res)=>{
                 localStorage.setItem("userId",res.data.user.id);
+                this.isLogin = true;
                 toastMessage.pushMessage("success","登入成功");
                 router.push('/browse');
             })
@@ -63,6 +65,7 @@ export default defineStore ('loginStore',{
         // 登出
         logout(){
             localStorage.clear();
+            this.isLogin = false;
             toastMessage.pushMessage("success","已登出");
             router.push('/');
         }

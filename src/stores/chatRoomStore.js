@@ -25,7 +25,7 @@ const time = timeStore();
 
 export default defineStore ('chatRoomStore',{
     state:()=>({
-        loadingRoom:true,
+        loadingRoom:false,
         allRoom:{},
         userId:"",
         targetId:"",
@@ -111,19 +111,15 @@ export default defineStore ('chatRoomStore',{
                 })
                 //取得目標房間資訊
                 this.getTargetRoomMsg();
-                //排序房間
-                this.sortOwnRooms()
+                //將房間資料替換成要渲染的資料
+                this.updateData();
             }
-        },
-        sortOwnRooms(){
-            this.ownRooms = this.ownRooms.sort(function (a, b) {
-                return a.lastestTime.time < b.lastestTime.time ? 1 : -1;
-            });
-            this.updateData();
         },
         updateData(){
             this.renderNavData = [];
-            for(let i=0;i<this.ownRooms.length;i++){
+            
+            let promises = [];
+            for (let i=0;i<this.ownRooms.length;i++){
                 let obj ={
                     "lastestTime":"",
                     "roomKey":"",
@@ -132,27 +128,45 @@ export default defineStore ('chatRoomStore',{
                     "otherPic":"",
                     "petPic":""
                 }
-
                 obj.lastestTime = this.ownRooms[i].lastestTime.time;
-                
                 let otherIdFilter = this.ownRooms[i].owner.filter((id)=>{
                     return id!=this.userId
                 })
                 obj.otherId = otherIdFilter[0];
                 obj.roomKey = this.ownRooms[i].roomKey;
+                this.loadingRoom = true;
 
-                axios.get(`${apiUrl}/users/${otherIdFilter[0]}`)
+                let axiosPromise = axios.get(`${apiUrl}/users/${otherIdFilter[0]}`)
                 .then((res)=>{
                     obj.otherName = res.data.userInfo.name
                     obj.otherPic = res.data.userInfo.pic
                     obj.petPic = res.data.petInfo.pic
                     this.renderNavData.push(obj)
+                    this.loadingRoom = false;
                 })
                 .catch((err)=>{
                     console.log(err)
                 })
+
+
+                promises.push(axiosPromise);
             }
-            this.loadingRoom = false;
+            
+            Promise.all(promises)
+            .then(() => {
+                //排序房間
+                this.sortOwnRooms()
+            })
+            .catch(err => {
+                console.log(err);
+            });
+            
+            
+        },
+        sortOwnRooms(){
+            this.renderNavData = this.renderNavData.sort(function (a, b) {
+                return a.lastestTime < b.lastestTime ? 1 : -1;
+            });
         },
         switchTargetIdAndRoomKey(id,key){
             this.targetRoomKey = key;
