@@ -48,12 +48,12 @@ export default {
 </script>
 
 <template >
-  <div class="chatRoomArea container pt-3 px-2 px-lg-4" ref="scrollBtmContainer" style="overflow-y: scroll">
+  <div class="chatRoomArea pt-3 px-2 px-lg-4" ref="scrollBtmContainer" style="overflow-y: scroll">
     <!-- 如果是自己傳的，在右側 -->
-    <div class="row w-100" v-for="item in renderMsgData" :key="item.msgKey">
+    <div class="row w-100 gx-0" v-for="item in renderMsgData" :key="item.msgKey">
       
       <div v-if="item.sender == userId" class="d-flex justify-content-end ms-auto col-8">
-        <div class="d-inline-flex flex-column-reverse d-lg-flex flex-lg-row justify-content-lg-end mb-5">
+        <div class="d-flex flex-column-reverse flex-lg-row align-items-end justify-content-lg-end mb-5">
           <div class="timeArea d-flex align-items-end me-2">
             <p>{{item.time}}</p>
           </div>
