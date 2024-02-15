@@ -4,6 +4,7 @@ import LoginNav from '@/components/LoginNav.vue';
 import HeaderComponent from '@/components/HeaderComponent.vue';
 import loginStore from '../../stores/loginStore.js';
 import router from '@/router';
+
 export default {
   components:{
     LoginNav,
@@ -57,10 +58,9 @@ export default {
   <LoginNav/>
 </template>
 
-
-
 <style lang="scss" scoped>
-@import "../../assets/main";
+  @import "../../assets/main";
+  
   .loginImg{
     width: 35%;
     border: 12px solid $hangout-block;

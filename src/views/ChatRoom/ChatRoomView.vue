@@ -1,14 +1,11 @@
 <script>
 import {onMounted, ref } from 'vue';
-
 import HeaderComponent from '@/components/HeaderComponent.vue';
 import ChatRoomNav from '../../components/ChatRoomNav.vue';
 import NotLogin from '../../components/NotLogin.vue';
 import ChatNav from '../../components/ChatNav.vue';
-
 import statusStore from '../../stores/statusStore';
 import chatRoomStore from '../../stores/chatRoomStore';
-
 
 export default {
   components:{
@@ -23,8 +20,6 @@ export default {
     const chatRoom = chatRoomStore();
     const { sendMsg } = chatRoom;
     const newMsg = ref("");
-
-    
 
     const callSendMsg = ()=>{
       if(!newMsg.value.trim()){
@@ -85,7 +80,8 @@ export default {
 
 
 <style lang="scss" scoped>
-@import "../../assets/main";
+  @import "../../assets/main";
+
   .myContainer{
     margin: 0px 8px;
   }
@@ -97,7 +93,6 @@ export default {
     }
   }
   
-
   .inputArea{
     width: 75%;
     height: 70px;
@@ -140,4 +135,5 @@ export default {
       transform: scale(0.98);
     }
   }
+  
 </style>

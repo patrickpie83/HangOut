@@ -1,7 +1,5 @@
 <script>
-
 import { ref, onMounted, getCurrentInstance, watch } from 'vue';
-
 import chatRoomStore from '../../stores/chatRoomStore';
 import { storeToRefs } from 'pinia';
 
@@ -17,11 +15,7 @@ export default {
 
     const scrollToBottom = () => {
       if (scrollBtmContainer.value) {
-        // console.log(`scrollTop為${scrollBtmContainer.value.scrollTop}`)
-        // console.log(`scrollHeight為${scrollBtmContainer.value.scrollHeight}`)
         scrollBtmContainer.value.scrollTop = scrollBtmContainer.value.scrollHeight;
-        // console.log(`賦予後scrollTop為${scrollBtmContainer.value.scrollTop}`)
-        // console.log(`賦予後scrollHeight為${scrollBtmContainer.value.scrollHeight}`)
         scrollToBottomAgain();
       }
     };
@@ -33,7 +27,6 @@ export default {
     };
     
     watch( renderMsgData , ()=>{
-      // console.log(`觸發監聽`)
       scrollToBottom();
     })
 
@@ -42,8 +35,6 @@ export default {
       targetId.value = getCurrentInstance().proxy.$route.query.targetId;
       getTargetRoomMsg();
       getTargetInfo();
-
-      //監聽滾動
     })
 
     return{
@@ -53,26 +44,22 @@ export default {
       renderMsgData
     }
   }
-  
 }
 </script>
 
 <template >
   <div class="chatRoomArea container pt-3 px-2 px-lg-4" ref="scrollBtmContainer" style="overflow-y: scroll">
     <!-- 如果是自己傳的，在右側 -->
-    <div class="row" v-for="item in renderMsgData" :key="item.msgKey">
+    <div class="row w-100" v-for="item in renderMsgData" :key="item.msgKey">
       
       <div v-if="item.sender == userId" class="d-flex justify-content-end ms-auto col-8">
         <div class="d-inline-flex flex-column-reverse d-lg-flex flex-lg-row justify-content-lg-end mb-5">
-
           <div class="timeArea d-flex align-items-end me-2">
             <p>{{item.time}}</p>
           </div>
-
           <div class="msgArea bg-hangout-block">
             <p>{{item.msg}}</p>
           </div>
-
         </div>
       </div>
       
@@ -84,7 +71,6 @@ export default {
           <div class="timeArea d-flex align-items-end ">
             <p>{{item.time}}</p>
           </div>
-
         </div>
       </div>
 
@@ -93,7 +79,8 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-@import "../../assets/main";
+  @import "../../assets/main";
+
   .chatRoomArea{
     //訊息視窗的高度
     //需扣除header跟footer的高度最外層才不會有捲軸，並且完整顯示內容不被擋住
@@ -103,7 +90,6 @@ export default {
     // 輸入框
     // pc以下 70px
     // pc  100px
-
     height:calc(100vh - 190px); 
     @include pc{
         height:calc(100vh - 270px);
@@ -126,4 +112,5 @@ export default {
         font-size: 12px;
     }
   }
+  
 </style>

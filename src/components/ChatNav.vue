@@ -2,12 +2,12 @@
 import chatRoomStore from '../stores/chatRoomStore';
 import { storeToRefs } from 'pinia';
 import { onMounted, watch } from 'vue';
+
 export default {
     setup(){
         const chatRoom = chatRoomStore();
         const { loadingRoom, userId, targetId, allRoom, renderNavData,targetName, targetPic } = storeToRefs(chatRoom);
         const { getTargetRoomKey, getOwnKeys, getConnect, switchTargetIdAndRoomKey } = chatRoom;
-
 
         watch( allRoom,()=>{
             //當全部聊天室發生變化時
@@ -32,7 +32,6 @@ export default {
     }
 }
 </script>
-
 
 <template>
     <nav class="bg-hangout-block overflow-auto">
@@ -79,9 +78,9 @@ export default {
     </nav>
 </template>
 
-
 <style lang="scss" scoped>
-@import "../assets/main";
+    @import "../assets/main";
+
     .chatTarget{
         &:hover{
             cursor: pointer;

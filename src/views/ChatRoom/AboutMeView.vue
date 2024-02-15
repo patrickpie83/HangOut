@@ -9,11 +9,9 @@ import statusStore from '../../stores/statusStore';
 import toastMessageStore from '../../stores/toastMessageStore';
 import timeStore from '../../stores/timeStore';
 
-
 import { onMounted, ref } from 'vue';
 
 const apiUrl = process.env.VUE_APP_API_URL;
-
 const status = statusStore();
 const toastMessage = toastMessageStore();
 const time = timeStore();
@@ -280,7 +278,6 @@ export default {
       createDate:"",
       whoLikes:[]
     })
-
     const editPost = (data)=>{
       editPostTemp.value.postId = data.postId;
       editPostTemp.value.postImg = data.postImg;
@@ -358,13 +355,9 @@ export default {
       editInfo,
       createPost,
       clearPost,
-
-      // likerPic,
       seeWhoLikes,
-      // likerName,
       editPost,
       sendEditPost,
-      
     }
   }
 }
@@ -376,7 +369,7 @@ export default {
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-10 col-lg-8">
-          
+  
           <!-- 資料 -->
           <div class="row">
             <!-- 主人資料 -->
@@ -650,12 +643,9 @@ export default {
                 <div class="bg-hangout-block p-7" style="border-radius: 28px;">
                   <p class="text-center text-hangout-second fw-bold">目前還沒有貼文</p>
                 </div>
-                
               </div>
-              
             </div>
           </div>
-
 
         </div>
       </div>
@@ -670,7 +660,7 @@ export default {
 
 
 <style lang="scss" scoped>
-@import "../../assets/main";
+  @import "../../assets/main";
 
   .headPicEffect{
     border: 4px solid $hangout-primary;

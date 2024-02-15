@@ -1,6 +1,7 @@
 <script>
 import statusStore from '../stores/statusStore'; 
 const status = statusStore();
+
 export default {
     data(){
         return{
@@ -35,7 +36,8 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-@import "../assets/main";
+    @import "../assets/main";
+
     .navShadow{
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     }
@@ -58,8 +60,7 @@ export default {
             background-color: $hangout-decorate;
         }
 
-        //！！！！！！！！待再改為mixin
-        @media (min-width: 992px) {
+        @include pc{
             font-size: 16px;
             padding: 20px 0px;
         }

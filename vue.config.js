@@ -10,6 +10,7 @@ module.exports = {
     : '/'
 }
 
+//因全域引入在部署後無法生效，故先改以各別元件區域引入
 // module.exports = {
 //   css: {
 //     loaderOptions: {

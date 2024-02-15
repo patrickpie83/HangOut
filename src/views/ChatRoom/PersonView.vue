@@ -1,18 +1,16 @@
 <script>
 import axios from 'axios';
-
 import HeaderComponent from '@/components/HeaderComponent.vue';
 import ChatRoomNav from '../../components/ChatRoomNav.vue';
 import NotLogin from '../../components/NotLogin.vue';
 import statusStore from '../../stores/statusStore';
 import toastMessageStore from '../../stores/toastMessageStore';
-
 import { onMounted, ref, getCurrentInstance } from 'vue';
 
 const apiUrl = process.env.VUE_APP_API_URL;
-
 const status = statusStore();
 const toastMessage = toastMessageStore();
+
 export default {
   components:{
     HeaderComponent,
@@ -71,9 +69,7 @@ export default {
           console.log(err)
         })
       }
-      
     }
-
 
     const users=ref([]);
     const likerPic = (likerId)=>{
@@ -82,7 +78,6 @@ export default {
           return obj.id == likerId
         })
         return findResult[0].userInfo.pic
-
       } catch(err){
         console.log(err)
         return ""
@@ -95,7 +90,6 @@ export default {
           return obj.id == likerId
         })
         return findResult[0].userInfo.name
-
       } catch(err){
         console.log(err)
         return "無法顯示"
@@ -135,9 +129,9 @@ export default {
     return{
       userId,
       personInfo,
+
       likePost,
       alreadyLike,
-
       likerPic,
       likerName
     }
@@ -154,7 +148,6 @@ export default {
       <span class="d-sm-none">聊天</span>
     </router-link>
     <div class="bg-hangout-bg pt-4 pb-7" v-if="userId">
-      
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-10 col-lg-8">
@@ -331,7 +324,6 @@ export default {
               </div>
             </div>
 
-
           </div>
         </div>
         
@@ -345,7 +337,8 @@ export default {
 
 
 <style lang="scss" scoped>
-@import "../../assets/main";
+  @import "../../assets/main";
+
   .chatBtn{
       position: fixed; /* Fixed/sticky position */
       bottom: 150px; /* Place the button at the bottom of the page */
@@ -444,6 +437,5 @@ export default {
       top: 1px;
     }
   }
-
 
 </style>

@@ -1,15 +1,14 @@
 <script>
 import axios from 'axios';
-
 import HeaderComponent from '@/components/HeaderComponent.vue';
 import ChatRoomNav from '../../components/ChatRoomNav.vue';
 import NotLogin from '../../components/NotLogin.vue';
 import statusStore from '../../stores/statusStore';
-
 import { onMounted, ref } from 'vue';
 
 const apiUrl = process.env.VUE_APP_API_URL;
 const status = statusStore();
+
 export default {
   components:{
     HeaderComponent,
@@ -57,7 +56,6 @@ export default {
       />
 
     <div class="container">
-
       <div class="row">
         <div v-for="item in usersData" :key="item.id" class="col-sm-6 mb-4">
           <router-link :to="{ path: '/person/'+item.id, query: { id : item.id } }" class="browseCard">
@@ -89,7 +87,8 @@ export default {
 
 
 <style lang="scss" scoped>
-@import "../../assets/main";
+  @import "../../assets/main";
+  
   .browseCard{
     padding: 24px 0px;
     display: flex;

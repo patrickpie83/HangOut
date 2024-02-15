@@ -1,14 +1,9 @@
 import { defineStore } from 'pinia';
-
-// import statusStore from './statusStore';
 import toastMessageStore from './toastMessageStore';
-
 import axios from 'axios';
 import router from '@/router';
 
 const apiUrl = process.env.VUE_APP_API_URL;
-// const status = statusStore();
-//引入messagestore
 const toastMessage = toastMessageStore();
 
 export default defineStore ('loginStore',{

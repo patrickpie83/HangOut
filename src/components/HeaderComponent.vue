@@ -19,10 +19,8 @@
   }
 </script>
 
-
 <template>
   <header class="bg-hangout-primary">
-
     <div class="container">
       <div class="row justify-content-end">
         <!-- 左邊也加一個，讓logo可以置中 -->
@@ -35,23 +33,19 @@
         <div class="col-3 col-lg-2">
           <button v-if="showLogoutBtn " @click="logout" type="button" class="logoutBtn p-1 w-100 btn bg-hangout-decorate border-hangout-decorate">登出</button>
         </div>
-
       </div>
     </div>
-
   </header>
 </template>
 
-
-
 <style lang="scss" scoped>
-@import "../assets/main";
+  @import "../assets/main";
+
   header{
     padding: 16px 0px 16px 0px;
     @include pc{
         padding: 24px 0px 32px 0px;
     }
-   
   }
 
   .logoBtn{
@@ -78,4 +72,5 @@
       box-shadow:none
     }
   }
+  
 </style>

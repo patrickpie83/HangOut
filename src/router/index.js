@@ -52,7 +52,6 @@ const routes = [
         name:'chatWelcome',
         component: () => import('../views/ChatRoom/ChatWelcome.vue'),
       },
-      //不能紀錄上一頁作法？？？
       {
         path: ':targetId',
         name:'target',

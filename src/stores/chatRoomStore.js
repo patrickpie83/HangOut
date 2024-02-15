@@ -1,11 +1,10 @@
 import { defineStore } from 'pinia';
-
 import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { ref as fireBaseRef, getDatabase, onValue, update, push, child} from "firebase/database";
 import axios from 'axios';
-const apiUrl = process.env.VUE_APP_API_URL;
 
+const apiUrl = process.env.VUE_APP_API_URL;
 const firebaseConfig = {
   apiKey: "AIzaSyCTIDRYBSvZak9CqKLulVG3XcqXQgbA4Tk",
   authDomain: "hangoutchatroom-e390c.firebaseapp.com",
@@ -19,7 +18,6 @@ const firebaseConfig = {
 const chatRoomApp = initializeApp(firebaseConfig);
 const db = getDatabase(chatRoomApp);
 
-
 import timeStore from '../stores/timeStore';
 const time = timeStore();
 
@@ -32,16 +30,12 @@ export default defineStore ('chatRoomStore',{
         targetRoomKey:"",
         targetName:"",
         targetPic:"",
-        
         ownKeys:[],
         ownRooms:[],// ownRooms以陣列形式才能用時間排序
         renderNavData:[],
-
         targetMsgDataAry:[],
         renderMsgData:[],
     }),
-    getters:{
-    },
     actions:{
         getConnect(){
             //初始都先設空值
@@ -75,7 +69,6 @@ export default defineStore ('chatRoomStore',{
                         this.targetRoomKey = item
                     }
                 })
-                
             }
         },
         getOwnKeys(){
@@ -143,7 +136,6 @@ export default defineStore ('chatRoomStore',{
                     obj.otherPic = res.data.userInfo.pic
                     obj.petPic = res.data.petInfo.pic
 
-
                     // 因數據產生變化時，會同時多次執行updateData函式，故若已有對象資料則不再push
                     let alreadyResult = this.renderNavData.filter( data =>{
                         return data.otherId == otherIdFilter[0]
@@ -151,12 +143,10 @@ export default defineStore ('chatRoomStore',{
                     if(alreadyResult[0] == undefined){
                         this.renderNavData.push(obj)
                     }
-                    
                 })
                 .catch((err)=>{
                     console.log(err)
                 })
-
 
                 promises.push(axiosPromise);
             }
@@ -169,8 +159,6 @@ export default defineStore ('chatRoomStore',{
             .catch(err => {
                 console.log(err);
             });
-            
-            
         },
         sortOwnRooms(){
             this.renderNavData = this.renderNavData.sort(function (a, b) {
@@ -201,7 +189,6 @@ export default defineStore ('chatRoomStore',{
                     return
                 }
             }
-
         },
         getTargetInfo(){
             if(this.targetId){

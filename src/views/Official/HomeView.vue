@@ -61,7 +61,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-@import "../../assets/main";
+  @import "../../assets/main";
 
   .banner{
     background-image: url(../../../public/images/img_banner.png);
@@ -84,7 +84,6 @@ export default {
     height:16px;
     width:100%;
     top:120%;
-
   }
 
   .indexText{
@@ -99,7 +98,6 @@ export default {
     @include sm{
       width: 324px;
     }
-
     @include pc{
       width: 180px;
     }
@@ -121,7 +119,6 @@ export default {
   .loginBtn{
     background-color: #fff;
     border-radius:60px;
-    // transition-duration:0.2s; 
 
     .loginText{
         color:$hangout-primary;
@@ -150,11 +147,9 @@ export default {
     &:hover{
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
       background-color:$hangout-primary;
-
       .loginText{
         color:#fff;
       }
-
       .loginLogo{
         color:#fff;
       }
@@ -167,5 +162,4 @@ export default {
     }
   }
 
-  
 </style>>
